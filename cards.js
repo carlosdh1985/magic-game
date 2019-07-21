@@ -75,20 +75,6 @@ let trivia = [
                       {name: "Hack Wilson", img: "./images/HackWilson.jpg"}],
     correctAnswer: {name: "Hack Wilson", img: "./images/HackWilson.jpg"}
     },
-    {question: "What team won the World Series in the 2000?", 
-    possibleAnswers: [{name: "Yankees", img: "./images/yankees_logo.png"},
-                      {name: "Marlins", img: "./images/marlins_logo.png"},
-                      {name: "Braves", img: "./images/braves_logo.jpg"},
-                      {name: "Indians", img: "./images/indians_logo.jpg"}],
-    correctAnswer: {name: "Yankees", img: "./images/yankees_logo.png"}
-    },
-    {question: "The team Sandy Koufax played as a rookie...", 
-    possibleAnswers: [{name: "Brooklyn Dodgers", img: "./images/brooklyn_dodgers.jpg"},
-                      {name: "Arizona Diamonds", img: "./images/ArizonaDiamonds.jpg"},
-                      {name: "Houston Astros", img: "./images/astros.png"},
-                      {name: "KC Royals", img: "./images/royals_logo.jpg"}],
-    correctAnswer: {name: "Brooklyn Dodgers", img: "./images/brooklyn_dodgers.jpg"}
-    },
     {question: "All-time career leader in Major League at-bats...", 
     possibleAnswers: [{name: "Pete Rose", img: "./images/PeteRose.jpg"},
                       {name: "Hank Aaron", img: "./images/HankAaron.jpg"},
@@ -419,7 +405,7 @@ function starting(){
                         if(scoreCounter < 100){
                          return "You are not a baseball fan. Are you? You scored only " + scoreCounter + " points.";
                         }
-                       else if (scoreCounter >= 100 && scoreCounter < 200){
+                        else if (scoreCounter >= 100 && scoreCounter < 200){
                         return "Not your day. You scored only " + scoreCounter + " points.";
                         }
                         else if(scoreCounter >= 200 && scoreCounter < 600) {

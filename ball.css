@@ -105,10 +105,10 @@ color: green;
 
 
 #td{
-  color: #002d72;
+  color: #B65429;
   text-align: center;
   font-size: 25px;
- 
+  font-weight: bold;
 }
 .th{
   color: #002d72;
@@ -137,6 +137,7 @@ margin-top: 150px;
   height: 400px;
   text-align: center;
  font-size: 35px;
- color: #002d72;
+ color: #DF7C1E;
  font-family: Helvetica-Neue;
+ font-weight: bold;
 }
