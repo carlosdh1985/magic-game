@@ -357,28 +357,34 @@ function starting(){
                {
                 
                 strikesCounter++;
-              
+                
                 $(this).addClass("wrongAnswer");
                 $('p', this).css("color", "red");
                 let strike1 = new Audio('strike1.mp3');
                 strike1.play();
+                scoreCounter -= 10;
+                document.getElementById('td').innerHTML = scoreCounter;
               }
               else if($('p', this).text().slice(0, $('p', this).text().length/2) !== rightChoice &&
               strikesCounter === 1){
                 strikesCounter++;
+                scoreCounter -= 15;
                 $(this).addClass("wrongAnswer");
                 $('p', this).css("color", "red");
                 let strike2 = new Audio('strike2.mp3');
                 strike2.play();
+                document.getElementById('td').innerHTML = scoreCounter;
                 
               }
               else if($('p', this).text().slice(0, $('p', this).text().length/2) !== rightChoice &&
               strikesCounter === 2){
                 strikesCounter= 0;  
+                scoreCounter -= 20;
                 $(this).addClass("wrongAnswer");
                 $('p', this).css("color", "red");
                 let strike3 = new Audio('strike3.mp3');
                 strike3.play();
+                document.getElementById('td').innerHTML = scoreCounter;
                 setTimeout(function(){ currentQuestionIndex++; nextQuestion(); }, 700);
               }
                else if($('p', this).text().slice(0, $('p', this).text().length/2) === rightChoice){
@@ -402,7 +408,10 @@ function starting(){
                     
                       finalResult = finalScore();
                         function finalScore(){
-                        if(scoreCounter < 100){
+                        if (scoreCounter < 0){
+                          return "Baseball is not your thing. You 'scored': " + scoreCounter + " points.";
+                        }
+                        else if(scoreCounter >= 0 && scoreCounter < 100){
                          return "You are not a baseball fan. Are you? You scored only " + scoreCounter + " points.";
                         }
                         else if (scoreCounter >= 100 && scoreCounter < 200){
@@ -422,4 +431,4 @@ function starting(){
             
             }
             
-          
+            
