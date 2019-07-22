@@ -14,17 +14,20 @@
    display: flex;
   justify-content: space-between;
   align-items: center;
+  
  }
  #buttonStart{
    background-color: #002d72;
    width: 150px;
    height: 50px;
    color: white;
-   font-size: 18px;
+   font-size: 20px;
    border-radius: 8px 8px;
    border-color: #002d72;
    margin-left: -220px;
    margin-top: 350px;
+   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  
 
  }
  #started{
@@ -60,6 +63,7 @@
   color: #002d72;
   font-family: Helvetica-Neue;
   text-align: center;
+  font-weight: bold;
   display: none;
 }
 
@@ -67,6 +71,7 @@
  text-align: center;
  font-size: 25px;
  color: #002d72;
+ font-weight: bold;
  font-family: Helvetica-Neue;
  display: none;
 }
@@ -109,15 +114,12 @@ color: green;
   text-align: center;
   font-size: 25px;
   font-weight: bold;
+  
 }
 .th{
   color: #002d72;
 }
-/* #myCanvas{
-background-color: aqua;
-margin-left: 60px;
-margin-top: 150px;
-} */
+
 
 #imgContainer{
   margin-top: 25px;
@@ -140,4 +142,8 @@ margin-top: 150px;
  color: #DF7C1E;
  font-family: Helvetica-Neue;
  font-weight: bold;
+}
+#moving_logo{
+margin-left: 160px;
+border-radius: 5%;
 }

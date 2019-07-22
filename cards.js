@@ -246,7 +246,7 @@ function starting(){
                           $('#card4 > img').fadeIn(2000);
                           $('#theQuestion > p').fadeIn(3000);
                           $('#score_board').fadeIn(3000);
-
+                          
                                                              
 }, 11000);
 }
@@ -411,7 +411,7 @@ function starting(){
                         else if(scoreCounter >= 200 && scoreCounter < 600) {
                           return "Come on, you can do better than " + scoreCounter + " points.";
                         }
-                        else if(scoreCounter >= 600 && scoreCounter < 700){
+                        else if(scoreCounter >= 600 && scoreCounter < 850){
                           return "Amazing job! Bet you work for ESPN... You scored " + scoreCounter + " points.";
                         }
                         else{
@@ -422,8 +422,4 @@ function starting(){
             
             }
             
-            
-            
-            
-
-   
+          
