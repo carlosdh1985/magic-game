@@ -1,144 +1,85 @@
 <!DOCTYPE html>
 <html>
     <head>
-       <title>Ball Park</title>
+       <title>Magic Game</title>
        <link type="text/css" rel="stylesheet" href="ball.css" media="screen">
+       <link rel="preconnect" href="https://fonts.gstatic.com"> 
+<link href="https://fonts.googleapis.com/css2?family=Quantico:wght@700&display=swap" rel="stylesheet">
        <meta name="viewport" content="width=device-width, initial-scale=1">
-      
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
-  
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+       <script src="https://code.jquery.com/jquery-3.4.1.min.js" 
+       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+       
     </head>
     
-    <body id='body' style="background-color: white">
+    <body>
        
          <div id='start'> 
+            <div id="gamePresentation">
+              <button onclick="starting()" id="buttonStart">Play Ball</button>   
+            </div>
            
-         
-         <div id=initial_img> <img src='./teamlogos/damy.jpg' width ="1200px" height="550px">
-          
-          <button onclick="starting()" type="button" id="buttonStart">Start Game</button>
-          
-             
-        </div>
          </div>
          
-        <div id= 'started'>
-        <div id="carousel" class="carousel slide" data-ride="carousel">
-                   <!-- Indicators -->
-                    <ul class="carousel-indicators">
-                      <li data-target="#carousel" data-slide-to="0" class="active"></li>
-                      <li data-target="#carousel" data-slide-to="1"></li>
-                    </ul>
-                                        <!-- The slideshow -->
-                    <div class="carousel-inner">
-                      <div class="carousel-item active">
-                          <img src="./teamlogos/whitesox.png"  width="80" height="90px">
-                          <img src="./teamlogos/cincinati.png"  width="80" height="90px">
-                          <img src="./teamlogos/orioles.png"  width="80" height="90px">
-                          <img src="./teamlogos/twins.png"  width="80" height="90px">
-                          <img src="./teamlogos/sanDiego.png"  width="80" height="90px">
-                          <img src="./teamlogos/brewers.png"  width="80" height="90px">
-                          <img src="./teamlogos/rangers.png"  width="80" height="90px">
-                          <img src="./teamlogos/tigers.png"  width="80" height="90px">
-                          <img src="./teamlogos/arizona.png"  width="80" height="90px">
-                          <img src="./teamlogos/giants.png"  width="80" height="90px">
-                          <img src="./teamlogos/rockies.png"  width="80" height="90px">
-                          <img src="./teamlogos/phillies.png"  width="80" height="90px">
-                          <img src="./teamlogos/braves.png"  width="80" height="90px">
-                          <img src="./teamlogos/marlins.png"  width="80" height="90px">
-                          
-                             
-  
-                      </div>
-                      <div class="carousel-item">
-
-                          <img id="moving_logo" src="./teamlogos/catchingball.jpg"  width="750" height="90px">
-                          
-                          
-                      </div>
-                      <div class="carousel-item">
-                            
-                        <img src="./teamlogos/angels.png"  width="80" height="90px">
-                            <img src="./teamlogos/oakland.png"  width="80" height="90px">
-                            <img src="./teamlogos/dodgers.jpg"  width="80" height="90px">
-                            <img src="./teamlogos/cardinals.png"  width="80" height="90px">
-                            <img src="./teamlogos/cubs.png"  width="80" height="90px">
-                            <img src="./teamlogos/mets.png"  width="80" height="90px">
-                            <img src="./teamlogos/nationals.png"  width="80" height="90px">
-                            <img src="./teamlogos/pirates.png"  width="80" height="90px">
-                            <img src="./teamlogos/redsox.png"  width="80" height="90px"> 
-                            <img src="./teamlogos/seattle.png"  width="80" height="90px">
-                            <img src="./teamlogos/tampa.png"  width="80" height="90px">
-                            <img src="./teamlogos/toronto.png"  width="80" height="90px">
-                            <img src="./teamlogos/yankees.png"  width="80" height="90px">
-                            <img src="./teamlogos/astros.png"  width="80" height="90px">
-                            
-                      </div> 
-                   </div>
-                   <a class="carousel-control-prev" href="#carousel" data-slide="prev">
-                      <span class="carousel-control-prev-icon"></span>
-                    </a>
-                    <a class="carousel-control-next" href="#carousel" data-slide="next">
-                      <span class="carousel-control-next-icon"></span>
-                    </a>
-                  </div>
                 
-                  <div id="imgContainer" style="background-image: url('./images/finalMessage.jpg'); background-repeat: no-repeat; background-size: cover;          -webkit-background-size: cover;          -mox-background-size: cover;          -o-background-size: cover;">
-                  <div id="theTag"></div>
-                  </div>
-                    
-                 
-                    <img id='ballPark' src='./images/background.jpg'>
-                    <div id='cardsboard' width='500px' height='500px'>
-                      <div id='card1' >
-                        <img id='first' class="pic" width='110px' height='133px'>
-                        <p class='paragraph'></p>
-                      </div>
-                      <div id='card2' >
-                         <img id='second' class="pic" width='110px' height='133px'>
-                         <p class='paragraph'></p>
-                      </div>
-                      <div id='card3' >
-                         <img id='third' class="pic" width='110px' height='133px'>
-                         <p class='paragraph'></p>
-                      </div>
-                      <div id='card4' >
-                         <img id='fourth' class="pic" width='110px' height='133px'>
-                         <p class='paragraph'></p>
-                      </div>
-                      </div>
-                    <div id='theQuestion'>
-                        <p></p>
+          <div id= 'started'>
+
+                       <div id='theQuestion'>
+                         <p></p>
+                        </div>
+
+                    <div id='cardsboard'>
+
+                          <div id='card1' >
+                             <p id='paragraph_1'></p>
+                             <img id='first'>
+                           </div>
+
+                            <div id='card2' >
+                            <p id='paragraph_2'></p>
+                             <img id='second' >
+                           </div>
+
+                           <div id='card3' >
+                            <p id='paragraph_3'></p>
+                             <img id='third' >
+                           </div>
+
+                           <div id='card4' >
+                            <p id='paragraph_4'></p>
+                            <img id='fourth' >
+                          </div>
                     </div>
-                    <!-- <button id='next' onclick="myFunction()">Next pitch</button> -->
+
+                    
+                    
                     <div id="score_board">
-                        <div id="table">
-                            <table class="table">
-                            <!-- <tr>
-                              <th class="th">SCORE</th>
-                              
-                            </tr> -->
-                            <tr>
-                              <td  id="td">0</td>
-                              
-                           </tr>
-                      </table>
-                  </div>
-                  </div>
-                  
-                  
-                 
+                      <span id="td"> </span>
+                      <span id="homerun"></span>
+                      <img  id="umpire" src="" alt="" width='15%'>
+                      <img  id="ball" src="" alt="" width='15%'>
+                      <span id="strike"></span>
+                    </div>
+                   
+                </div>
 
-       
-        <script type="text/javascript" src="cards.js"></script>
+         
 
-        
-      </div>
+
+           <div id="imgContainer" style="background-image: url('./images/finalMessage.jpg'); 
+                                         background-repeat: no-repeat; background-size: cover;     
+                                         -webkit-background-size: cover;          
+                                         -mox-background-size: cover;          
+                                         -o-background-size: cover;">
+               
+               <div id="theTag"></div>
+           </div>
+
+
+      <script type="text/javascript" src="cards.js"></script> 
     </body>
 </html>
+

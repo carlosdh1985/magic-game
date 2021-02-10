@@ -1,4 +1,5 @@
-// 
+
+
 let trivia = [
     {question: "Who hit the milestone 500th homerun the fastest?", 
     possibleAnswers: [{name: "Sammy Sosa", img: "./images/SammySosa.jpg"},
@@ -229,27 +230,32 @@ let trivia = [
 ];
 
 
-function starting(){
-    document.getElementById('started').style.display = 'block';
-    document.getElementById('start').style.display = 'none';
-    let audio = new Audio('takemeintro.mp3');
-    audio.play();
-    let playball = new Audio('playball.mp3');
-    setTimeout(function(){playball.play();}, 11000);
-    setTimeout(function(){$('#card1').fadeIn();
+   function starting(){
+         document.getElementById('start').style.display = 'none';
+         document.getElementById('started').style.display = 'block';
+        
+         let audio = new Audio('takemeintro.mp3');
+             audio.play();
+
+         let playball = new Audio('playball.mp3');
+         setTimeout(function(){playball.play();}, 2000);
+
+         setTimeout(function(){$('#card1').fadeIn();
                           $('#card1 > img').fadeIn();
                           $('#card2').fadeIn('slow');
                           $('#card2 > img').fadeIn('slow');
-                          $('#card3').fadeIn(1000);
-                          $('#card3 > img').fadeIn(1000);
-                          $('#card4 > p').fadeIn(2000);
-                          $('#card4 > img').fadeIn(2000);
-                          $('#theQuestion > p').fadeIn(3000);
-                          $('#score_board').fadeIn(3000);
+                          $('#card3').fadeIn('slow');
+                          $('#card3 > img').fadeIn('slow');
+                          $('#card4').fadeIn('slow');
+                          $('#card4 > img').fadeIn('slow');
+                          $('#theQuestion > p').fadeIn('slow');
+                          $('#score_board').fadeIn('slow');
                           
                                                              
-}, 11000);
-}
+       }, 2000);
+     }
+
+
     function shuffleQuestions(arr){
      for (let i = arr.length - 1; i > 0; i--){
      let j = Math.floor(Math.random() * (i + 1));
@@ -258,6 +264,7 @@ function starting(){
      return arr;
     }
     shuffleQuestions(trivia);
+
 
     let someArr = [...trivia];
 
@@ -280,8 +287,10 @@ function starting(){
     let x;
     let checkAnswer;
     let rightChoice;
+
+     
+    
     function nextQuestion(){
-      
       if (currentQuestionIndex > lastQuestionIndex){
         $('#card1').fadeOut();
         $('#card1 > img').fadeOut();
@@ -297,9 +306,9 @@ function starting(){
           let audio = new Audio('takemeout.mp3');
           audio.play();
         $('#imgContainer').fadeIn(1500);
-        let message = document.querySelector('#imgContainer > div');
-            message.innerHTML = finalResult;
-            return message;
+          document.querySelector('#imgContainer > div').innerHTML = finalResult;
+        $('#imgContainer > div').fadeIn(7000);
+        $('#imgContainer > div').fadeOut(50000);
 
       }
       
@@ -328,30 +337,32 @@ function starting(){
         $('#card3 > p').css("color", "#002d72");
         $('#card4 > p').css("color", "#002d72");
         
-        }
-        
-        
+        } 
     }
     
     currentQuestionIndex = 0;
     nextQuestion();
     
-   
+    const cleaning = () => {
+      document.getElementById('strike').innerHTML = ``;
+      document.getElementById('homerun').innerHTML = ``;
+      document.getElementById('umpire').removeAttribute('src');
+      document.getElementById('ball').removeAttribute('src');
+    }
+  
 
    
    let scoreCounter = 0;
    let strikesCounter = 0;
    let finalResult;
    
- theCorrectAnswer();
+   theCorrectAnswer();
 
    
    function theCorrectAnswer(){
-
      
         $("#cardsboard").children().click(function(){
          
-        
               if($('p', this).text().slice(0, $('p', this).text().length/2) !== rightChoice &&
                 strikesCounter === 0)
                {
@@ -363,7 +374,12 @@ function starting(){
                 let strike1 = new Audio('strike1.mp3');
                 strike1.play();
                 scoreCounter -= 10;
-                document.getElementById('td').innerHTML = scoreCounter;
+                document.getElementById('td').innerHTML = `SCORE: ${scoreCounter}`;
+                let umpire = document.getElementById('umpire');
+                    umpire.setAttribute('src', './images/strike1-removebg-preview.png');
+
+                document.getElementById('strike').innerHTML = `STRIKE 1`;
+                setTimeout(function(){cleaning()}, 1000);
               }
               else if($('p', this).text().slice(0, $('p', this).text().length/2) !== rightChoice &&
               strikesCounter === 1){
@@ -373,7 +389,11 @@ function starting(){
                 $('p', this).css("color", "red");
                 let strike2 = new Audio('strike2.mp3');
                 strike2.play();
-                document.getElementById('td').innerHTML = scoreCounter;
+                document.getElementById('td').innerHTML = `SCORE: ${scoreCounter}`;
+                let umpire = document.getElementById('umpire');
+                    umpire.setAttribute('src', './images/strike2-removebg-preview.png');
+                document.getElementById('strike').innerHTML = `STRIKE 2!`;
+                setTimeout(function(){cleaning()}, 1500);
                 
               }
               else if($('p', this).text().slice(0, $('p', this).text().length/2) !== rightChoice &&
@@ -384,8 +404,13 @@ function starting(){
                 $('p', this).css("color", "red");
                 let strike3 = new Audio('strike3.mp3');
                 strike3.play();
-                document.getElementById('td').innerHTML = scoreCounter;
+                document.getElementById('td').innerHTML = `SCORE: ${scoreCounter}`;
+                let umpire = document.getElementById('umpire');
+                    umpire.setAttribute('src', './images/youreout-removebg-preview.png');
+                document.getElementById('strike').innerHTML = `YOU'RE OUT!`;
+               
                 setTimeout(function(){ currentQuestionIndex++; nextQuestion(); }, 700);
+                setTimeout(function(){cleaning()}, 700);
               }
                else if($('p', this).text().slice(0, $('p', this).text().length/2) === rightChoice){
                 $(this).addClass("rightAnswer");
@@ -396,35 +421,67 @@ function starting(){
                        if(x.possibleAnswers.includes(false)){
                              scoreCounter += 50;
                              setTimeout(function(){let cow = new Audio('holycow.mp3'); cow.play();}, 500)
-                             document.getElementById('td').innerHTML = scoreCounter;
+                             document.getElementById('td').innerHTML = `SCORE: ${scoreCounter}`;
+                             let pole = document.getElementById('ball');
+                                 pole.setAttribute('src', './images/pole.png');
+                                 pole.classList.add('ballmoving');
+                             document.getElementById('homerun').innerHTML = `WENT DEEP!!!`;
+                             setTimeout(function(){cleaning()}, 1000);
                          }
                         else {
                          scoreCounter += 25;
                          setTimeout(function(){let organ = new Audio('organ.mp3'); organ.play();}, 500)
-                         document.getElementById('td').innerHTML = scoreCounter;
+                         document.getElementById('td').innerHTML = `SCORE: ${scoreCounter}`;
+                         document.getElementById('homerun').innerHTML = `HOME RUN!`;
+                         setTimeout(function(){cleaning()}, 1000);
                          }
                         
                       }
+
+
                     
                       finalResult = finalScore();
+
                         function finalScore(){
                         if (scoreCounter < 0){
-                          return "Baseball is not your thing. You 'scored': " + scoreCounter + " points.";
+                          return `Baseball is not your thing. You "scored": ${scoreCounter} points.  
+                                  But never forget what Bullet Bob Feller used to say:  <br> 
+                                  <i><b>"Every day is a new opportunity.
+                                  You can build on yesterday's success or 
+                                  put its failures behind and start over again. 
+                                  That's the way life is, with a new game every day, 
+                                  and that's the way baseball is."</b></i>`;
                         }
                         else if(scoreCounter >= 0 && scoreCounter < 100){
-                         return "You are not a baseball fan. Are you? You scored only " + scoreCounter + " points.";
+                         return `You are not a baseball fan. Are you? You scored ${scoreCounter} points.
+                         Maybe you should do like Pete Rose: <br> 
+                         <i><b>"I'd be willing to bet you, if I was a betting man, 
+                         that I have never bet on baseball."</b></i>`;
                         }
                         else if (scoreCounter >= 100 && scoreCounter < 200){
-                        return "Not your day. You scored only " + scoreCounter + " points.";
+                        return `Not your day. You scored only ${scoreCounter} points.
+                                Nevertheless, do as Hank Aaron: <br>
+                                <i> <b>"I never smile when I have a bat in my hands. <br>
+                                     That's when you've got to be serious."</b></i>`;
                         }
                         else if(scoreCounter >= 200 && scoreCounter < 600) {
-                          return "Come on, you can do better than " + scoreCounter + " points.";
+                          return `Come on, you can do better than ${scoreCounter} points.
+                          Always follow this Sammy Sosa piece of advice: <br> 
+                          <i> <b>"If you have a bad day in baseball and start thinking about it,
+                          you will have 10 more."</b></i>`;
                         }
                         else if(scoreCounter >= 600 && scoreCounter < 850){
-                          return "Amazing job! Bet you work for ESPN... You scored " + scoreCounter + " points.";
+                          return `Amazing job! Bet you work for ESPN... ${scoreCounter} points you made. 
+                          You just showed why Tommy Henrich said this: <br> 
+                          <i> <b>"Catching a fly ball is a pleasure, but knowing what 
+                           to do with it after you catch it is a business."</b></i>`;
                         }
                         else{
-                          return "Did you know you are a baseball wizard? You scored " + scoreCounter + " points.";
+                          return `Did you know you are a baseball wizard? Outstanding ${scoreCounter} points!
+                          Now I understand Brooke Robinson: <br> 
+                          <i> <b>"I am a guy who just wanted to see his name  
+                          in the lineup everyday. To me, baseball was a passion  
+                          to the point of obsession."</b></i>`;
                         }     
                       } 
              });
